@@ -30,13 +30,13 @@ const frota = [
     },
 ];
 
-app.get('/frota/todos-veiculos', (req, res) => {
+app.get('/frota/veiculos', (req, res) => {
     res.send(frota);
 });
 
-app.get('/frota/:id', (req, res) => {
+app.get('/frota/veiculo/:id', (req, res) => {
     const id = Number(req.params.id);
-    const veiculoID = frota.find((veiculo) => frota.id === id);
+    const veiculoID = frota.find((veiculo) => veiculo.id === id);
     res.send(veiculoID);
 });
 
