@@ -29,3 +29,8 @@ const findAllVeiculosService = () => {
 const findVeiculoByIdService = (id) => {
     return frota.find((veiculo) => veiculo.id == id);
 };
+
+module.exports = {
+    findAllVeiculosService,
+    findVeiculoByIdService,
+}
