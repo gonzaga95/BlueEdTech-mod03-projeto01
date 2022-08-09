@@ -17,7 +17,7 @@ const createVeiculoController = (req, res) => {
     res.send(novoVeiculo);
 };
 
-const updateVeiculoController = (id) => {
+const updateVeiculoController = (req, res) => {
     const parametroID = Number(req.params.id);
     const veiculoEditar = req.body;
     const veiculoEditado = frotaService.updateVeiculoService(
@@ -27,8 +27,8 @@ const updateVeiculoController = (id) => {
     res.send(veiculoEditado);
 };
 
-const deleteVeiculoController = (id) => {
-    const parametroID = Number(req.params.id);
+const deleteVeiculoController = (req, res) => {
+    const parametroID = req.params.id;
     frotaService.deleteVeiculoService(parametroID);
     res.send({ message: 'Veículo deletado da frota!' });
 };

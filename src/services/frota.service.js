@@ -49,7 +49,7 @@ const updateVeiculoService = (id, veiculoEditado) => {
 
 const deleteVeiculoService = (id) => {
     const veiculoIndex = frota.findIndex((veiculo) => veiculo.id == id);
-    return frota.slice(veiculoIndex, 1);
+    return frota.splice(veiculoIndex, 1);
 };
 
 module.exports = {
