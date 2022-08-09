@@ -30,7 +30,29 @@ const findVeiculoByIdService = (id) => {
     return frota.find((veiculo) => veiculo.id == id);
 };
 
+const createVeiculoService = (novoVeiculo) => {
+    const novoID = frota.length + 1;
+    novoVeiculo.id = novoID;
+    frota.push(novoVeiculo);
+    return novoVeiculo;
+};
+
+const updateVeiculoService = (id, veiculoEditado) => {
+    veiculoEditado['id'] = id;
+    const veiculoIndex = frota.findIndex((veiculo) => veiculo.id == id);
+    frota[veiculoIndex] = veiculoEditado;
+    return veiculoEditado;
+};
+
+const deleteVeiculoService = (id) => {
+    const veiculoIndex = frota.findIndex((veiculo) => veiculo.id == id);
+    return frota.slice(veiculoIndex, 1);
+};
+
 module.exports = {
     findAllVeiculosService,
     findVeiculoByIdService,
-}
+    createVeiculoService,
+    updateVeiculoService,
+    deleteVeiculoService,
+};

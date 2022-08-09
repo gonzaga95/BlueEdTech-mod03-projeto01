@@ -11,7 +11,32 @@ const findVeiculoByIdController = (req, res) => {
     res.send(veiculoID);
 };
 
+const createVeiculoController = (req, res) => {
+    const veiculo = req.body;
+    const novoVeiculo = frotaService.createVeiculoService(veiculo);
+    res.send(novoVeiculo);
+};
+
+const updateVeiculoController = (id) => {
+    const parametroID = Number(req.params.id);
+    const veiculoEditar = req.body;
+    const veiculoEditado = frotaService.updateVeiculoService(
+        parametroID,
+        veiculoEditar,
+    );
+    res.send(veiculoEditado);
+};
+
+const deleteVeiculoController = (id) => {
+    const parametroID = Number(req.params.id);
+    frotaService.deleteVeiculoService(parametroID);
+    res.send({ message: 'Veículo deletado da frota!' });
+};
+
 module.exports = {
     findAllVeiculosController,
     findVeiculoByIdController,
+    createVeiculoController,
+    updateVeiculoController,
+    deleteVeiculoController,
 };
