@@ -5,6 +5,7 @@ const frota = [
         marca: 'Fiat',
         modelo: 'Uno',
         placa: 'abc12d3',
+        ano: 2015
     },
     {
         id: 2,
@@ -12,6 +13,7 @@ const frota = [
         marca: 'Fiat',
         modelo: 'Uno',
         placa: 'xyz12w3',
+        ano: 2017
     },
     {
         id: 3,
@@ -19,6 +21,7 @@ const frota = [
         marca: 'Fiat',
         modelo: 'Strada',
         placa: 'efg45h6',
+        ano: 2017
     },
 ];
 
