@@ -1,6 +1,4 @@
-## BlueEdTech-mod03-projeto01
-
-Projeto Back-end CRUD memória. Repositório do Projeto 01 do Módulo 03 do curso de Dev. Full-Stack da Blue EdTech.
+Projeto Back-end CRUD memória. Repositório do Projeto 01 e 02 do Módulo 03 do curso de Dev. Full-Stack da Blue EdTech.
 
 ## Back-end CRUD memória (Read All e Read By Id)
 
@@ -8,14 +6,15 @@ Projeto Back-end CRUD memória. Repositório do Projeto 01 do Módulo 03 do curs
 
 #### Endpoints
 
-- [GET] Leitura de todas os personagens
-- [GET] Leitura de personagens individuais (por ID)
-- [POST] Criação de personagens 
-- [PUT] Edição de personagens por ID 
-- [DELETE] Exclusão de personagens por ID
+- [GET] Leitura de todas os personagens;
+- [GET] Leitura de personagens individuais (por ID);
+- [POST] Criação de personagens;
+- [PUT] Edição de personagens por ID;
+- [DELETE] Exclusão de personagens por ID;
 
 ### Requisitos
 
-- Lista em memória 
+- Padrão MVC aplicado corretamente;
+- Persistência de dados no MongoDB;
 - CORS - Liberado 
 - Formatação do código utilizando o Prettier
