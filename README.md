@@ -1,6 +1,6 @@
 Projeto Back-end CRUD memória. Repositório do Projeto 01 e 02 do Módulo 03 do curso de Dev. Full-Stack da Blue EdTech.
 
-## Back-end CRUD memória (Read All e Read By Id)
+## Backend CRUD MongoDB (Create, Update, Delete)
 
 ### Critérios de Avaliação
 
