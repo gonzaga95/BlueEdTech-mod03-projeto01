@@ -1,55 +1,52 @@
-const frota = [
-    {
-        id: 1,
-        tipo: 'Hatch',
-        marca: 'Fiat',
-        modelo: 'Uno',
-        placa: 'abc12d3',
-        ano: 2015
-    },
-    {
-        id: 2,
-        tipo: 'Hatch',
-        marca: 'Fiat',
-        modelo: 'Uno',
-        placa: 'xyz12w3',
-        ano: 2017
-    },
-    {
-        id: 3,
-        tipo: 'Picape',
-        marca: 'Fiat',
-        modelo: 'Strada',
-        placa: 'efg45h6',
-        ano: 2017
-    },
-];
+const frota = require('../mocks/frota');
+const frotaEntity = require('../entities/frota.entity');
 
 const findAllVeiculosService = () => {
     return frota;
 };
 
 const findVeiculoByIdService = (id) => {
-    return frota.find((veiculo) => veiculo.id == id);
+    let veiculoEscolhido;
+
+    frota.map((veiculo) => {
+        if (veiculo.id === id) {
+            veiculoEscolhido = veiculo;
+        }
+    });
+
+    return veiculoEscolhido;
 };
 
-const createVeiculoService = (novoVeiculo) => {
-    const novoID = frota.length + 1;
-    novoVeiculo.id = novoID;
+const createVeiculoService = (veiculo) => {
+    const novoVeiculo = new frotaEntity(veiculo);
+    novoVeiculo.validate();
+
     frota.push(novoVeiculo);
     return novoVeiculo;
 };
 
-const updateVeiculoService = (id, veiculoEditado) => {
-    veiculoEditado['id'] = id;
-    const veiculoIndex = frota.findIndex((veiculo) => veiculo.id == id);
-    frota[veiculoIndex] = veiculoEditado;
-    return veiculoEditado;
+const updateVeiculoService = (veiculo) => {
+    const veiculoEscolhido = new frotaEntity(veiculo);
+    veiculoEscolhido.validate();
+
+    frota.map((cadaVeiculo, index) => {
+        if (cadaVeiculo.id == veiculoEscolhido.id) {
+            frota.splice(index, 1, veiculoEscolhido);
+        }
+    });
+
+    return veiculoEscolhido;
 };
 
 const deleteVeiculoService = (id) => {
-    const veiculoIndex = frota.findIndex((veiculo) => veiculo.id == id);
-    return frota.splice(veiculoIndex, 1);
+    let veiculoEscolhido;
+
+    frota.map((veiculo, index) => {
+        if (veiculo.id === id) {
+            veiculoEscolhido = veiculo;
+            frota.splice(index, 1);
+        }
+    });
 };
 
 module.exports = {

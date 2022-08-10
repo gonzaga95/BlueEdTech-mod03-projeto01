@@ -6,7 +6,7 @@ const findAllVeiculosController = (req, res) => {
 };
 
 const findVeiculoByIdController = (req, res) => {
-    const parametroID = Number(req.params.id);
+    const parametroID = req.params.id;
     const veiculoID = frotaService.findVeiculoByIdService(parametroID);
     res.send(veiculoID);
 };
@@ -18,12 +18,8 @@ const createVeiculoController = (req, res) => {
 };
 
 const updateVeiculoController = (req, res) => {
-    const parametroID = Number(req.params.id);
     const veiculoEditar = req.body;
-    const veiculoEditado = frotaService.updateVeiculoService(
-        parametroID,
-        veiculoEditar,
-    );
+    const veiculoEditado = frotaService.updateVeiculoService(veiculoEditar);
     res.send(veiculoEditado);
 };
 
