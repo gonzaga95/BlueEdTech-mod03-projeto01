@@ -1,32 +1,53 @@
 const frotaService = require('../services/frota.service');
 
 const findAllVeiculosController = (req, res) => {
-    const allFrota = frotaService.findAllVeiculosService();
-    res.send(allFrota);
+    try {
+        const allFrota = frotaService.findAllVeiculosService();
+        res.status(200).send(allFrota);
+    } catch (err) {
+        console.log(err);
+        res.status(500);
+    }
 };
 
 const findVeiculoByIdController = (req, res) => {
     const parametroID = req.params.id;
     const veiculoID = frotaService.findVeiculoByIdService(parametroID);
-    res.send(veiculoID);
+    if (veiculoID) {
+        res.status(200).send(veiculoID);
+    } else {
+        res.status(400).send({ message: 'Veiculo não localizado' });
+    }
 };
 
 const createVeiculoController = (req, res) => {
-    const veiculo = req.body;
-    const novoVeiculo = frotaService.createVeiculoService(veiculo);
-    res.send(novoVeiculo);
+    try {
+        const veiculo = req.body;
+        const novoVeiculo = frotaService.createVeiculoService(veiculo);
+        res.status(201).send(novoVeiculo);
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
 };
 
 const updateVeiculoController = (req, res) => {
-    const veiculoEditar = req.body;
-    const veiculoEditado = frotaService.updateVeiculoService(veiculoEditar);
-    res.send(veiculoEditado);
+    try {
+        const veiculoEditar = req.body;
+        const veiculoEditado = frotaService.updateVeiculoService(veiculoEditar);
+        res.status(200).send(veiculoEditado);
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
 };
 
 const deleteVeiculoController = (req, res) => {
     const parametroID = req.params.id;
-    frotaService.deleteVeiculoService(parametroID);
-    res.send({ message: 'Veículo deletado da frota!' });
+    const veiculoDeletado = frotaService.deleteVeiculoService(parametroID);
+    if (veiculoDeletado) {
+        res.status(200).send({ message: 'Veículo deletado da frota!' });
+    } else {
+        res.status(400).send({ message: 'Veículo não encontrado' });
+    }
 };
 
 module.exports = {
