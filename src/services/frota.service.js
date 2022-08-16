@@ -1,5 +1,6 @@
-const frota = require('../mocks/frota');
+// const frota = require('../mocks/frota');
 const frotaEntity = require('../entities/frota.entity');
+const Frota = require('../models/Frota');
 
 const findAllVeiculosService = () => {
     return frota;
