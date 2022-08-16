@@ -1,6 +1,5 @@
 [
     {
-        "id": "abcdef-12345",
         "tipo": "Hatch",
         "marca": "Fiat",
         "modelo": "Uno",
@@ -8,7 +7,6 @@
         "ano": 2015
     },
     {
-        "id": "fedcba-12345",
         "tipo": "Hatch",
         "marca": "Fiat",
         "modelo": "Uno",
@@ -16,7 +14,6 @@
         "ano": 2017
     },
     {
-        "id": "fedcba-09876",
         "tipo": "Picape",
         "marca": "Fiat",
         "modelo": "Strada",
