@@ -6,7 +6,7 @@ const FrotaSchema = new Schema({
     marca: { type: String, required: true },
     modelo: { type: String, required: true },
     placa: { type: String, required: true },
-    ano: { type: String, required: true },
+    ano: { type: Number, required: true },
 });
 
 const Frota = mongoose.model('frota', FrotaSchema);

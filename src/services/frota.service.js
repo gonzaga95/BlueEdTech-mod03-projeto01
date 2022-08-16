@@ -1,53 +1,38 @@
-// const frota = require('../mocks/frota');
+const frotaMock = require('../mocks/frota');
 const frotaEntity = require('../entities/frota.entity');
 const Frota = require('../models/Frota');
 
-const findAllVeiculosService = () => {
-    return frota;
+const findAllVeiculosService = async () => {
+    return await Frota.find();
 };
 
-const findVeiculoByIdService = (id) => {
-    let veiculoEscolhido;
-
-    frota.map((veiculo) => {
-        if (veiculo.id === id) {
-            veiculoEscolhido = veiculo;
-        }
-    });
-
+const findVeiculoByIdService = async (id) => {
+    const veiculoEscolhido = await Frota.findOne({ id: id });
     return veiculoEscolhido;
 };
 
-const createVeiculoService = (veiculo) => {
+const createVeiculoService = async (veiculo) => {
     const novoVeiculo = new frotaEntity(veiculo);
     novoVeiculo.validate();
 
-    frota.push(novoVeiculo);
-    return novoVeiculo;
+    return await Frota.create(novoVeiculo);
 };
 
-const updateVeiculoService = (veiculo) => {
+const updateVeiculoService = async (veiculo) => {
     const veiculoEscolhido = new frotaEntity(veiculo);
     veiculoEscolhido.validate();
 
-    frota.map((cadaVeiculo, index) => {
-        if (cadaVeiculo.id == veiculoEscolhido.id) {
-            frota.splice(index, 1, veiculoEscolhido);
-        }
+    const veiculoUpdatedInDatabase = await Frota.findOneAndUpdate({
+        id: id,
     });
 
-    return veiculoEscolhido;
+    return veiculoUpdatedInDatabase;
 };
 
 const deleteVeiculoService = (id) => {
-    let veiculoEscolhido;
+    const veiculoEscolhido = await Frota.findOneAndDelete({id: id});
 
-    frota.map((veiculo, index) => {
-        if (veiculo.id === id) {
-            veiculoEscolhido = veiculo;
-            frota.splice(index, 1);
-        }
-    });
+    return veiculoEscolhido;
 };
 
 module.exports = {
