@@ -1,4 +1,4 @@
-const { Schema, mongoose } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const FrotaSchema = new Schema({
     id: { type: String, required: true },
@@ -9,6 +9,6 @@ const FrotaSchema = new Schema({
     ano: { type: Number, required: true },
 });
 
-const Frota = mongoose.model('frota', FrotaSchema);
+const Frota = model('frota', FrotaSchema);
 
 module.exports = Frota;
