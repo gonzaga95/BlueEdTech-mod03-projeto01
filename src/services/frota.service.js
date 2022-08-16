@@ -30,7 +30,7 @@ const updateVeiculoService = async (veiculo) => {
 };
 
 const deleteVeiculoService = async (id) => {
-    const veiculoEscolhido = await Frota.findOneAndDelete({ id: id });
+    const veiculoEscolhido = await Frota.findByIdAndDelete(id);
 
     return veiculoEscolhido;
 };
