@@ -7,7 +7,7 @@ const findAllVeiculosService = async () => {
 };
 
 const findVeiculoByIdService = async (id) => {
-    const veiculoEscolhido = await Frota.findOne({ id: id });
+    const veiculoEscolhido = await Frota.findById(id);
     return veiculoEscolhido;
 };
 
