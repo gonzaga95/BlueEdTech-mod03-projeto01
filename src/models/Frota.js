@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const { Schema, mongoose } = require('mongoose');
 
 const FrotaSchema = new Schema({
     id: { type: String, required: true },

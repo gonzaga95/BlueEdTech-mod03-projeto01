@@ -29,7 +29,7 @@ const updateVeiculoService = async (veiculo) => {
     return veiculoUpdatedInDatabase;
 };
 
-const deleteVeiculoService = (id) => {
+const deleteVeiculoService = async (id) => {
     const veiculoEscolhido = await Frota.findOneAndDelete({id: id});
 
     return veiculoEscolhido;

@@ -1,8 +1,8 @@
 const frotaService = require('../services/frota.service');
 
-const findAllVeiculosController = (req, res) => {
+const findAllVeiculosController = async (req, res) => {
     try {
-        const allFrota = frotaService.findAllVeiculosService();
+        const allFrota = await frotaService.findAllVeiculosService();
         res.status(200).send(allFrota);
     } catch (err) {
         console.log(err);
@@ -10,9 +10,9 @@ const findAllVeiculosController = (req, res) => {
     }
 };
 
-const findVeiculoByIdController = (req, res) => {
+const findVeiculoByIdController = async (req, res) => {
     const parametroID = req.params.id;
-    const veiculoID = frotaService.findVeiculoByIdService(parametroID);
+    const veiculoID = await frotaService.findVeiculoByIdService(parametroID);
     if (veiculoID) {
         res.status(200).send(veiculoID);
     } else {
@@ -20,31 +20,37 @@ const findVeiculoByIdController = (req, res) => {
     }
 };
 
-const createVeiculoController = (req, res) => {
+const createVeiculoController = async (req, res) => {
     try {
         const veiculo = req.body;
-        const novoVeiculo = frotaService.createVeiculoService(veiculo);
+        const novoVeiculo = await frotaService.createVeiculoService(veiculo);
         res.status(201).send(novoVeiculo);
     } catch (err) {
         res.status(400).send({ message: err.message });
     }
 };
 
-const updateVeiculoController = (req, res) => {
+const updateVeiculoController = async (req, res) => {
     try {
         const veiculoEditar = req.body;
-        const veiculoEditado = frotaService.updateVeiculoService(veiculoEditar);
+        const veiculoEditado = await frotaService.updateVeiculoService(
+            veiculoEditar,
+        );
         res.status(200).send(veiculoEditado);
     } catch (err) {
         res.status(400).send({ message: err.message });
     }
 };
 
-const deleteVeiculoController = (req, res) => {
+const deleteVeiculoController = async (req, res) => {
     const parametroID = req.params.id;
-    const veiculoDeletado = frotaService.deleteVeiculoService(parametroID);
+    const veiculoDeletado = await frotaService.deleteVeiculoService(
+        parametroID,
+    );
     if (veiculoDeletado) {
-        res.status(200).send({ message: 'Veículo deletado da frota!' });
+        res.status(200).send({
+            message: 'Veículo deletado da frota!',
+        });
     } else {
         res.status(400).send({ message: 'Veículo não encontrado' });
     }
