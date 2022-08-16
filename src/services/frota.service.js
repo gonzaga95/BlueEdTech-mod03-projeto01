@@ -1,6 +1,6 @@
-const frotaMock = require('../mocks/frota');
+// const frotaMock = require('../mocks/frota');
 const frotaEntity = require('../entities/frota.entity');
-const Frota = require('../models/Frota');
+const Frota = require('../database/models/Frota');
 
 const findAllVeiculosService = async () => {
     return await Frota.find();
@@ -30,7 +30,7 @@ const updateVeiculoService = async (veiculo) => {
 };
 
 const deleteVeiculoService = async (id) => {
-    const veiculoEscolhido = await Frota.findOneAndDelete({id: id});
+    const veiculoEscolhido = await Frota.findOneAndDelete({ id: id });
 
     return veiculoEscolhido;
 };
