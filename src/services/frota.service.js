@@ -3,7 +3,8 @@ const frotaEntity = require('../entities/frota.entity');
 const Frota = require('../database/models/Frota');
 
 const findAllVeiculosService = async () => {
-    return await Frota.find();
+    const veiculos = await Frota.find();
+    return veiculos;
 };
 
 const findVeiculoByIdService = async (id) => {
@@ -22,9 +23,7 @@ const updateVeiculoService = async (veiculo) => {
     const veiculoEscolhido = new frotaEntity(veiculo);
     veiculoEscolhido.validate();
 
-    const veiculoUpdatedInDatabase = await Frota.findOneAndUpdate({
-        id: id,
-    });
+    const veiculoUpdatedInDatabase = await Frota.findOneAndUpdate(veiculoEscolhido);
 
     return veiculoUpdatedInDatabase;
 };

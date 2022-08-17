@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectToDatabase = () => {
     mongoose
-        .connect('mongodb://localhost:27017/frota-proj-db', {
+        .connect('mongodb://localhost:27017/frotadb', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })

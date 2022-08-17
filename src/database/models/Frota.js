@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const FrotaSchema = new Schema({
-    id: { type: String, required: true },
+    // id: { type: String, required: true },
     tipo: { type: String, required: true },
     marca: { type: String, required: true },
     modelo: { type: String, required: true },

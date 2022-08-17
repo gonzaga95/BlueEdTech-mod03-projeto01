@@ -6,7 +6,7 @@ const findAllVeiculosController = async (req, res) => {
         res.status(200).send(allFrota);
     } catch (err) {
         console.log(err);
-        res.status(500);
+        res.status(500).send({message: 'Nao deu'});
     }
 };
 
